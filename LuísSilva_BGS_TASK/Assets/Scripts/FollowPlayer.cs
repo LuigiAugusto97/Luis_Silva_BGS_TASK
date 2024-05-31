@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    private PlayerMovement _player;
+    private Player_CTRL _player;
 
     [SerializeField] bool CanFollow = true;
     private void Awake()
     {
-        _player = FindObjectOfType<PlayerMovement>();
+        _player = FindObjectOfType<Player_CTRL>();
     }
     void Update()
     {

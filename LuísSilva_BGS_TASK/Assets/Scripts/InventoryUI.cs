@@ -6,6 +6,9 @@ public class InventoryUI : MonoBehaviour
 {
     //Make Property For showing Money
 
+    [SerializeField] GameObject InventoryWindow;
+
+
     [Header("list of total items")]
     private Inventory inventoryUI;
     [SerializeField] ItemUI[] totalItems;
@@ -15,12 +18,21 @@ public class InventoryUI : MonoBehaviour
     {
         inventoryUI = Inventory.GetInventory();
     }
-    private void Start()
+
+    public void HandleInventoryUI()
     {
-        UpdateItemList();
+        if (!InventoryWindow.activeSelf)
+        {
+            InventoryWindow.SetActive(true);
+            UpdateItemList();
+        }
+        else
+        {
+            InventoryWindow.SetActive(false);
+        }
     }
 
-    public void UpdateItemList()
+    private void UpdateItemList()
     {
         // Clear Items
         for (int i = 0; i < totalItems.Length; i++)

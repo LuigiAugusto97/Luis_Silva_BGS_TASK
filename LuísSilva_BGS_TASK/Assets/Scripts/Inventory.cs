@@ -80,7 +80,7 @@ public class Inventory : MonoBehaviour
     //Always find Players Inventory
     public static Inventory GetInventory()
     {
-        return FindObjectOfType<PlayerMovement>().GetComponent<Inventory>();
+        return FindObjectOfType<Player_CTRL>().GetComponent<Inventory>();
     }
 }
 

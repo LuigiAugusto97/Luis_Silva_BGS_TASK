@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float Speed;
     private Vector2 _movementVector;
 
+    [SerializeField] bool CanMove = true;
 
     private void Awake()
     {
@@ -21,17 +22,21 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         _movementVector = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
-        _anim.SetFloat("HorizontalMovement", Input.GetAxisRaw("Horizontal"));
-        _anim.SetFloat("VerticalMovement", Input.GetAxisRaw("Vertical"));
+
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if (CanMove)
+        {
+            Move();
+        }
     }
 
     private void Move()
     {
         _rb.velocity = _movementVector * Speed;
+        _anim.SetFloat("HorizontalMovement", Input.GetAxisRaw("Horizontal"));
+        _anim.SetFloat("VerticalMovement", Input.GetAxisRaw("Vertical"));
     }
 }

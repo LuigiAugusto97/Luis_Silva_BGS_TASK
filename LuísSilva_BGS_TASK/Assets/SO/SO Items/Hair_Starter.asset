@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3bd21ea8dd50646ba3fd02fcb1a124, type: 3}
+  m_Name: Hair_Starter
+  m_EditorClassIdentifier: 
+  _name: Blond Pigtail
+  _icon: {fileID: -1405989581, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  _type: 0
+  _price: 12
+  upSprites:
+  - {fileID: 821679304, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  - {fileID: -1176991470, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  - {fileID: 459946435, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  downSprites:
+  - {fileID: -1405989581, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  - {fileID: 1491565592, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  - {fileID: -1942864705, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  leftSprites:
+  - {fileID: 1215223400, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  - {fileID: -513839007, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  - {fileID: 1453675037, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  rightSprites:
+  - {fileID: 428148426, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  - {fileID: -426942388, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  - {fileID: 210784228, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}

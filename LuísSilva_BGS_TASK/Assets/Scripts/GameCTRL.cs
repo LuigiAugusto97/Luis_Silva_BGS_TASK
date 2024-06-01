@@ -10,6 +10,7 @@ public class GameCTRL : MonoBehaviour
 
     private GameStates states;
 
+
     private void Awake()
     {
         states = GameStates.FreeRoam;    
@@ -25,6 +26,8 @@ public class GameCTRL : MonoBehaviour
         if (states == GameStates.FreeRoam)
         {
             Player.HandleMovement(true);
+            PlayerInventory.HairPart.HandleMovement(true);
+            PlayerInventory.BodyPart.HandleMovement(true);
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -34,6 +37,8 @@ public class GameCTRL : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.I))
             {
                 Player.HandleMovement(false);
+                PlayerInventory.HairPart.HandleMovement(false);
+                PlayerInventory.BodyPart.HandleMovement(false);
                 PlayerInventory.HandleInventoryUI();
                 states = GameStates.InventoryManagment;
             }
@@ -42,7 +47,7 @@ public class GameCTRL : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.I))
             {
-                Player.HandleMovement(true);
+                Player.HandleMovement(false);
                 PlayerInventory.HandleInventoryUI();
                 states = GameStates.FreeRoam;
             }

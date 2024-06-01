@@ -17,7 +17,7 @@ public class Player_CTRL : MonoBehaviour
 
     private bool _canMove = true;
     private bool _isMoving;
-    
+
     public bool CanMove
     {
         get { return _canMove; }
@@ -74,7 +74,6 @@ public class Player_CTRL : MonoBehaviour
         {
             _rb.velocity = new Vector2(0,0);
         }
-
 
     }
 

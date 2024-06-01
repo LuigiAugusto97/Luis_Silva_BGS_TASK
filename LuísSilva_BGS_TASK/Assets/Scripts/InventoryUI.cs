@@ -8,12 +8,24 @@ public class InventoryUI : MonoBehaviour
     //Make Property For showing Money
 
     [SerializeField] GameObject InventoryWindow;
-    
+
+    [SerializeField] BodyPartAnimation _HairPart;
+    [SerializeField] BodyPartAnimation _BodyPart;
+
+    public BodyPartAnimation HairPart
+    {
+        get { return _HairPart; }
+    }
+    public BodyPartAnimation BodyPart
+    {
+        get { return _BodyPart; }
+    }
 
     [Header("list of total items")]
     private Inventory _playerInventory;
     [SerializeField] ItemUI[] TotalItems_Menu;
     [SerializeField] ItemUI[] TotalItems_Shop;
+
 
 
     private void Awake()
@@ -44,12 +56,13 @@ public class InventoryUI : MonoBehaviour
 
         if (_playerInventory._Inventory.Count <= 0) return;
 
-        int index = 0;
+
         // Add Item from inventory to UI
         for (int i = 0; i < _playerInventory._Inventory.Count; i++)
         {
-            index = i;
-            TotalItems_Menu[i].SetInventoryData(_playerInventory._Inventory[i], () => { EquipItem(_playerInventory._Inventory[index]); });
+            int index = i;
+            ItemData itemToEquip = _playerInventory._Inventory[index];
+            TotalItems_Menu[i].SetInventoryData(itemToEquip, () => { EquipItem(itemToEquip); });
         }
     }
 
@@ -63,18 +76,31 @@ public class InventoryUI : MonoBehaviour
 
         if (_playerInventory._Inventory.Count <= 0) return;
 
-        int index = 0;
         // Add Item from inventory to UI
         for (int i = 0; i < _playerInventory._Inventory.Count; i++)
         {
-            index = i;
-            TotalItems_Shop[i].SetInventoryData(_playerInventory._Inventory[i], () => { shop.SellItem(_playerInventory._Inventory[index].Item);});
+            int index = i;
+            ItemSO itemToSell = _playerInventory._Inventory[index].Item;
+            TotalItems_Shop[i].SetInventoryData(_playerInventory._Inventory[i], () => { shop.SellItem(itemToSell);});
         }
     }
 
     //TODO Make it change item in character
     public void EquipItem(ItemData itemToBeEquiped)
     {
-        Debug.Log("Equip");
+        Debug.Log(itemToBeEquiped.Item.name);
+        if (itemToBeEquiped.ItemInUse)
+        {
+            NotificationManager.Instance.ShowNotification("You are already using that item!");
+            return;
+        }
+        if (itemToBeEquiped.Item.Type == ItemType.Head)
+        {
+            HairPart.ChangeParts(itemToBeEquiped);
+        }
+        else if (itemToBeEquiped.Item.Type == ItemType.Body)
+        {
+            BodyPart.ChangeParts(itemToBeEquiped);
+        }
     }
 }

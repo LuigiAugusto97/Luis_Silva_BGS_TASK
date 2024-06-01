@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3bd21ea8dd50646ba3fd02fcb1a124, type: 3}
+  m_Name: Dress_Starter
+  m_EditorClassIdentifier: 
+  _name: NormalDress
+  _icon: {fileID: 1669459647, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  _type: 1
+  _price: 15
+  upSprites:
+  - {fileID: -2004244689, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  - {fileID: 1598187741, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  - {fileID: 1997421685, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  downSprites:
+  - {fileID: 1669459647, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  - {fileID: 1516690181, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  - {fileID: 1455749492, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  leftSprites:
+  - {fileID: -149984015, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  - {fileID: -1597063945, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  - {fileID: -3990882, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  rightSprites:
+  - {fileID: 1019860108, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  - {fileID: -258890888, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  - {fileID: -875468446, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}

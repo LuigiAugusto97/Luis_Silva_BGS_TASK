@@ -14,7 +14,6 @@ public class ItemUI : MonoBehaviour
 
     public void SetInventoryData(ItemData itemUI, Action onClickEvent)
     {
-        Button.onClick.RemoveAllListeners();
         ItemIcon.enabled = true;
         ItemIcon.sprite = itemUI.Item.Icon;
 

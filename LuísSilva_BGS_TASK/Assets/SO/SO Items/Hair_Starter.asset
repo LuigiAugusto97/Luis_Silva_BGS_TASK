@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hair_Starter
   m_EditorClassIdentifier: 
   _name: Blond Pigtail
-  _icon: {fileID: -1405989581, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
+  _icon: {fileID: -1660302904, guid: f87e1a31ca8acc74eb7c3424a8e4a771, type: 3}
   _type: 0
   _price: 12
   upSprites:

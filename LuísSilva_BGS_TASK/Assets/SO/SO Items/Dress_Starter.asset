@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dress_Starter
   m_EditorClassIdentifier: 
   _name: NormalDress
-  _icon: {fileID: 1669459647, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
+  _icon: {fileID: 1321349618, guid: d3c6a3957f3eeeb4991d4b3ffd086e43, type: 3}
   _type: 1
   _price: 15
   upSprites:

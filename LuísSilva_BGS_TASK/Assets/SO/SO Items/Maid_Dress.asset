@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3bd21ea8dd50646ba3fd02fcb1a124, type: 3}
+  m_Name: Maid_Dress
+  m_EditorClassIdentifier: 
+  _name: Maid Outfit
+  _icon: {fileID: 989488192, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  _type: 1
+  _price: 55
+  upSprites:
+  - {fileID: -477154328, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  - {fileID: -1656672289, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  - {fileID: -2010762505, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  downSprites:
+  - {fileID: -541258643, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  - {fileID: 1057396340, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  - {fileID: 1967733120, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  leftSprites:
+  - {fileID: 965832574, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  - {fileID: 638481327, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  - {fileID: 858252905, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  rightSprites:
+  - {fileID: -179131918, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  - {fileID: 809100683, guid: 78e53b979f70fae4696be8982500c98e, type: 3}
+  - {fileID: 120039721, guid: 78e53b979f70fae4696be8982500c98e, type: 3}

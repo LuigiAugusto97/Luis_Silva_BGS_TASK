@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ItemUI : MonoBehaviour
 {
     [SerializeField] Image ItemIcon;
+    [SerializeField] Image ItemBorder;
     [SerializeField] TextMeshProUGUI ItemPrice;
     [SerializeField] TextMeshProUGUI ItemName;
     [SerializeField] Button Button;
@@ -16,7 +17,10 @@ public class ItemUI : MonoBehaviour
     {
         ItemIcon.enabled = true;
         ItemIcon.sprite = itemUI.Item.Icon;
-
+        if (itemUI.ItemInUse)
+        {
+            ItemBorder.enabled = true;
+        }
         Button.interactable = true;
         Button.onClick.AddListener(() => { onClickEvent?.Invoke(); });
     }
@@ -24,6 +28,7 @@ public class ItemUI : MonoBehaviour
     {
         Button.interactable = false;
         ItemIcon.enabled = false;
+        ItemBorder.enabled = false;
         Button.onClick.RemoveAllListeners();
     }
 

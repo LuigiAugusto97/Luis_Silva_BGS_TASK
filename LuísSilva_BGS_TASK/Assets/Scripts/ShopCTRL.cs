@@ -7,6 +7,7 @@ public class ShopCTRL : MonoBehaviour
     public static ShopCTRL Instance { get; private set; }
 
     public event Action OnShopOpen;
+    public event Action OnShopClose;
 
     [SerializeField] GameObject ShopUIWindow;
     [SerializeField] ItemUI ShopSlot_Prefab;
@@ -30,9 +31,13 @@ public class ShopCTRL : MonoBehaviour
         ShopUIWindow.SetActive(true);
         _shopItems = npcTalked.AvailableItems;
         UpdateItems();
-
     }
 
+    public void CloseShop()
+    {
+        OnShopClose?.Invoke();
+        ShopUIWindow.SetActive(false);
+    }
 
     private void UpdateItems()
     {

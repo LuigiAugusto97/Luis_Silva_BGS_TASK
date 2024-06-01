@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3bd21ea8dd50646ba3fd02fcb1a124, type: 3}
+  m_Name: Red Hair Tied
+  m_EditorClassIdentifier: 
+  _name: Red Hair Tied
+  _icon: {fileID: -724876454, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  _type: 0
+  _price: 65
+  upSprites:
+  - {fileID: 1597466758, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  - {fileID: -291997883, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  - {fileID: -1912369854, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  downSprites:
+  - {fileID: 286319597, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  - {fileID: -33026280, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  - {fileID: 2023473722, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  leftSprites:
+  - {fileID: 1058149720, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  - {fileID: 1301693589, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  - {fileID: 2119156634, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  rightSprites:
+  - {fileID: 1884106715, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  - {fileID: -1630230386, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}
+  - {fileID: -303077606, guid: ee8142ad7fee8ce4baf83332e434bf15, type: 3}

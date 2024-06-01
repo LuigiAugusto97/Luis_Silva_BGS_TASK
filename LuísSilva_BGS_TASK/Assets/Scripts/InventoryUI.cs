@@ -80,15 +80,26 @@ public class InventoryUI : MonoBehaviour
         for (int i = 0; i < _playerInventory._Inventory.Count; i++)
         {
             int index = i;
-            ItemSO itemToSell = _playerInventory._Inventory[index].Item;
-            TotalItems_Shop[i].SetInventoryData(_playerInventory._Inventory[i], () => { shop.SellItem(itemToSell);});
+            ItemData itemToSell = _playerInventory._Inventory[index];
+            TotalItems_Shop[i].SetInventoryData(_playerInventory._Inventory[i], () =>
+            {
+                if (!itemToSell.ItemInUse)
+                {
+                    shop.SellItem(itemToSell.Item);
+                }
+                else
+                {
+                    NotificationManager.Instance.ShowNotification("You cannot sell an Item that you are wearing!");
+                }
+            });
+        
         }
     }
 
     //TODO Make it change item in character
     public void EquipItem(ItemData itemToBeEquiped)
     {
-        Debug.Log(itemToBeEquiped.Item.name);
+        
         if (itemToBeEquiped.ItemInUse)
         {
             NotificationManager.Instance.ShowNotification("You are already using that item!");
@@ -102,5 +113,7 @@ public class InventoryUI : MonoBehaviour
         {
             BodyPart.ChangeParts(itemToBeEquiped);
         }
+        _playerInventory.EquipItem(itemToBeEquiped);
+        UpdateItemList();
     }
 }

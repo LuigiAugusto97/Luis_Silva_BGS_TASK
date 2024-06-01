@@ -45,6 +45,20 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void EquipItem(ItemData itemEquiped)
+    {
+        foreach( ItemData item in _inventory)
+        {
+            if (item != itemEquiped && item.Item.Type == itemEquiped.Item.Type && item.ItemInUse)
+            {
+                item.ItemInUse = false;
+                break;
+            }
+        }
+        itemEquiped.ItemInUse = true;
+
+    }
+
     //Always find Players Inventory
     public static Inventory GetInventory()
     {

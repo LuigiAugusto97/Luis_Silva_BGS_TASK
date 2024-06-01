@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameStates { FreeRoam, InventoryManagment, Shop }
+public enum GameStates { FreeRoam, InventoryManagment, Shop}
 public class GameCTRL : MonoBehaviour
 {
     [SerializeField] Player_CTRL Player;
@@ -19,6 +19,7 @@ public class GameCTRL : MonoBehaviour
     private void Start()
     {
         ShopCTRL.Instance.OnShopOpen += () => { states = GameStates.Shop; };
+        ShopCTRL.Instance.OnShopClose += () => { states = GameStates.FreeRoam; };
     }
 
     void Update()
@@ -48,13 +49,20 @@ public class GameCTRL : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.I))
             {
                 Player.HandleMovement(false);
+                PlayerInventory.HairPart.HandleMovement(false);
+                PlayerInventory.BodyPart.HandleMovement(false);
                 PlayerInventory.HandleInventoryUI();
                 states = GameStates.FreeRoam;
             }
         }
         else if (states == GameStates.Shop)
         {
-
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Player.HandleMovement(true);
+                PlayerInventory.HairPart.HandleMovement(true);
+                PlayerInventory.BodyPart.HandleMovement(true);
+            }
         }
     }
 }

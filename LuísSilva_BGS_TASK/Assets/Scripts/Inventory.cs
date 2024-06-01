@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,68 +12,37 @@ public class Inventory : MonoBehaviour
     }
 
     //To remove an item count
-    public void DecreaseItemCount(ItemSO item, int count = 1)
+    public void RemoveItem(ItemSO item)
     {
-        var itemToBeUsed = _inventory.First(invItem => invItem.Item == item);
-        itemToBeUsed.ItemCount -= count;
-        if (itemToBeUsed.ItemCount == 0)
+        if (CheckIfItemPresent(item))
         {
-            _inventory.Remove(itemToBeUsed);
+            var itemToBeRemoved = _inventory.First(invItem => invItem.Item == item);
+            _inventory.Remove(itemToBeRemoved);
         }
     }
 
     //To add an Item to the Inventory
-    public void AddItem(ItemSO itemToAdd, int count = 1)
+    public void AddItem(ItemSO itemToAdd)
     {
-        var itemAlreadyinInventory = _inventory.FirstOrDefault(item => item.Item == itemToAdd);
-        if (itemAlreadyinInventory != null)
+        _inventory.Add(new ItemData()
         {
-            itemAlreadyinInventory.ItemCount += count;
-        }
-        else
-        {
-            _inventory.Add(new ItemData()
-            {
-                Item = itemToAdd,
-                ItemCount = count
-            });
-        }
+            Item = itemToAdd,
+            ItemInUse = false
+        });
     }
 
     //To check if inventory Contains Item
-    public bool CheckIfItemPresent(ItemSO itemToCheck, int count = 1)
+    public bool CheckIfItemPresent(ItemSO itemToCheck)
     {
         var itemAlreadyinInventory = _inventory.FirstOrDefault(item => item.Item == itemToCheck);
         if (itemAlreadyinInventory != null)
         {
-            if (itemAlreadyinInventory.ItemCount >= count)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
         else
         {
             return false;
         }
-    }
-
-    //Get the item count
-    public int GetItemCount(ItemSO itemToCount)
-    {
-        var itemToGetCount = _inventory.FirstOrDefault(item => item.Item == itemToCount);
-        if (itemToGetCount != null)
-        {
-            return itemToGetCount.ItemCount;
-        }
-        else
-        {
-            return 0;
-        }
-
     }
 
     //Always find Players Inventory
@@ -88,17 +56,17 @@ public class Inventory : MonoBehaviour
 public class ItemData
 {
     [SerializeField] ItemSO item;
-    [SerializeField] int itemCount;
+    [SerializeField] bool itemInUse;
 
     public ItemSO Item
     {
         get { return item; }
         set { item = value; }
     }
-    public int ItemCount
+    public bool ItemInUse
     {
-        get { return itemCount; }
-        set { itemCount = value; }
+        get { return itemInUse; }
+        set { itemInUse = value; }
     }
     public ItemData()
     {

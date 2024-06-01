@@ -30,14 +30,6 @@ public class Player_CTRL : MonoBehaviour
         _anim = GetComponentInChildren<Animator>();
     }
 
-    private void FixedUpdate()
-    {
-        if (CanMove)
-        {
-            Move();
-        }
-    }
-
     public void Interact()
     {
         Vector2 interactPos = _rb.position + _lasDirVector;
@@ -56,6 +48,7 @@ public class Player_CTRL : MonoBehaviour
     {
         CanMove = canMove;
         _anim.SetBool("CanMove", CanMove);
+
 
         float moveInput_x = Input.GetAxisRaw("Horizontal");
         float moveInput_y = Input.GetAxisRaw("Vertical");
@@ -77,11 +70,13 @@ public class Player_CTRL : MonoBehaviour
                 _anim.SetFloat("LastVerticalMov", moveInput_y);
             }
         }
+        else
+        {
+            _rb.velocity = new Vector2(0,0);
+        }
+
 
     }
 
-    private void Move()
-    {
-     
-    }
+ 
 }

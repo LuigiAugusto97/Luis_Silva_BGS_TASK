@@ -12,105 +12,121 @@ public class BodyPartAnimation : MonoBehaviour
     }
 
     [Header("Sprites for animation of the current equipped item")]
-    [SerializeField] Sprite[] UpSprites;
-    [SerializeField] Sprite[] DownSprites;
-    [SerializeField] Sprite[] LeftSprites;
-    [SerializeField] Sprite[] RightSprites;
+    [SerializeField] Sprite[] Head_UpSprites;
+    [SerializeField] Sprite[] Head_DownSprites;
+    [SerializeField] Sprite[] Head_LeftSprites;
+    [SerializeField] Sprite[] Head_RightSprites;
+
+    [SerializeField] Sprite[] Body_UpSprites;
+    [SerializeField] Sprite[] Body_DownSprites;
+    [SerializeField] Sprite[] Body_LeftSprites;
+    [SerializeField] Sprite[] Body_RightSprites;
 
     //Reference to the reference of components needed
-    private SpriteRenderer _spriteRenderer;
-    private Animator _anim;
-    private void Awake()
-    {
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        _anim = GetComponent<Animator>();
-        //force Down pose on Start
-        _anim.SetFloat("LastVerticalMov", -1);
-    }
+    [SerializeField] SpriteRenderer Head_SpriteRenderer;
+    [SerializeField] SpriteRenderer Body_SpriteRenderer;
 
     //Funtions that handle the animation events getting the selected sprite to animate
-    public void GetUpSprites(int index)
+    public void GetUpSprites_Head(int index)
     {
-        if (UpSprites.Length == 0 || index >= UpSprites.Length)
+        if (Head_UpSprites.Length == 0 || index >= Head_UpSprites.Length)
         {
-            _spriteRenderer.sprite = null;
+            Head_SpriteRenderer.sprite = null;
             return;
         }
-        _spriteRenderer.sprite = UpSprites[index];
+        Head_SpriteRenderer.sprite = Head_UpSprites[index];
     }
-    public void GetDownSprites(int index)
+    public void GetDownSprites_Head(int index)
     {
-        if (DownSprites.Length == 0 || index >= DownSprites.Length)
+        if (Head_DownSprites.Length == 0 || index >= Head_DownSprites.Length)
         {
-            _spriteRenderer.sprite = null;
+            Head_SpriteRenderer.sprite = null;
             return;
         }
-        _spriteRenderer.sprite = DownSprites[index];
+        Head_SpriteRenderer.sprite = Head_DownSprites[index];
     }
-    public void GetLeftSprites(int index)
+    public void GetLeftSprites_Head(int index)
     {
-        if (LeftSprites.Length == 0 || index >= LeftSprites.Length)
+        if (Head_LeftSprites.Length == 0 || index >= Head_LeftSprites.Length)
         {
-            _spriteRenderer.sprite = null;
+            Head_SpriteRenderer.sprite = null;
             return;
         }
-        _spriteRenderer.sprite = LeftSprites[index];
+        Head_SpriteRenderer.sprite = Head_LeftSprites[index];
     }
-    public void GetRightSprites(int index)
+    public void GetRightSprites_Head(int index)
     {
-        if (RightSprites.Length == 0 || index >= RightSprites.Length)
+        if (Head_RightSprites.Length == 0 || index >= Head_RightSprites.Length)
         {
-            _spriteRenderer.sprite = null;
+            Head_SpriteRenderer.sprite = null;
             return;
         }
-        _spriteRenderer.sprite = RightSprites[index];
+        Head_SpriteRenderer.sprite = Head_RightSprites[index];
+    } 
+    public void GetUpSprites_Body(int index)
+    {
+        if (Body_UpSprites.Length == 0 || index >= Body_DownSprites.Length)
+        {
+            Body_SpriteRenderer.sprite = null;
+            return;
+        }
+        Body_SpriteRenderer.sprite = Body_UpSprites[index];
+    }
+    public void GetDownSprites_Body(int index)
+    {
+        if (Body_DownSprites.Length == 0 || index >= Body_DownSprites.Length)
+        {
+            Body_SpriteRenderer.sprite = null;
+            return;
+        }
+        Body_SpriteRenderer.sprite = Body_DownSprites[index];
+    }
+    public void GetLeftSprites_Body(int index)
+    {
+        if (Body_LeftSprites.Length == 0 || index >= Body_DownSprites.Length)
+        {
+            Body_SpriteRenderer.sprite = null;
+            return;
+        }
+        Body_SpriteRenderer.sprite = Body_LeftSprites[index];
+    }
+    public void GetRightSprites_Body(int index)
+    {
+        if (Body_RightSprites.Length == 0 || index >= Body_DownSprites.Length)
+        {
+            Body_SpriteRenderer.sprite = null;
+            return;
+        }
+        Body_SpriteRenderer.sprite = Body_RightSprites[index];
     }
 
     //Funtion to change the sprites needed to animate to the current equiped item
     public void ChangeParts(ItemData itemToChangeTo)
     {
-        if (itemToChangeTo.Item.Type != bodyPart) return;
-
-        UpSprites = itemToChangeTo.Item.UpSprites;
-        DownSprites = itemToChangeTo.Item.DownSprites;
-        LeftSprites = itemToChangeTo.Item.LeftSprites;
-        RightSprites = itemToChangeTo.Item.RightSprites;
-
-        _spriteRenderer.sprite = DownSprites[0];
-    }
-
-    //Function handle players movement
-    public void HandleMovement(bool canMove)
-    {
-        //Catch reference of the boolean that says is the player can move, and sends the paramete to the animator
-        _anim.SetBool("CanMove", canMove);
-
-        //Catch the inputs of the player
-        float moveInput_x = Input.GetAxisRaw("Horizontal");
-        float moveInput_y = Input.GetAxisRaw("Vertical");
-
-        //Send the parameters to the animator acording to the inputs
-        if (canMove)
+        switch (itemToChangeTo.Item.Type)
         {
+            case ItemType.Head:
+                Head_UpSprites = itemToChangeTo.Item.UpSprites;
+                Head_DownSprites = itemToChangeTo.Item.DownSprites;
+                Head_LeftSprites = itemToChangeTo.Item.LeftSprites;
+                Head_RightSprites = itemToChangeTo.Item.RightSprites;
 
-            _anim.SetFloat("HorizontalMovement", moveInput_x);
+                Head_SpriteRenderer.sprite = Head_DownSprites[0];
+                break;
 
-            _anim.SetFloat("VerticalMovement", moveInput_y);
+            case ItemType.Body:
+                Body_UpSprites = itemToChangeTo.Item.UpSprites;
+                Body_DownSprites = itemToChangeTo.Item.DownSprites;
+                Body_LeftSprites = itemToChangeTo.Item.LeftSprites;
+                Body_RightSprites = itemToChangeTo.Item.RightSprites;
 
-
-            bool _isMoving = moveInput_x != 0 || moveInput_y != 0;
-            _anim.SetBool("IsMoving", _isMoving);
-
-            if (moveInput_x != 0 || moveInput_y != 0)
-            {
-
-                _anim.SetFloat("LastHorizontalMov", moveInput_x);
-
-                _anim.SetFloat("LastVerticalMov", moveInput_y);
-
-            }
+                Body_SpriteRenderer.sprite = Body_DownSprites[0];
+                Debug.Log("Body sprite renderer" + Body_SpriteRenderer.sprite);
+                break;
+            default:
+                break;
         }
-
+    ;
     }
 
 }

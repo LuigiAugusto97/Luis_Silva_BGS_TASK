@@ -12,17 +12,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] GameObject UIOpenButton;
 
     [Header("Reference the animation scripts of the equipable items")]
-    [SerializeField] BodyPartAnimation _HairPart;
-    [SerializeField] BodyPartAnimation _BodyPart;
-
-    public BodyPartAnimation HairPart
-    {
-        get { return _HairPart; }
-    }
-    public BodyPartAnimation BodyPart
-    {
-        get { return _BodyPart; }
-    }
+    [SerializeField] BodyPartAnimation _BodyParts; 
 
     [Header("List of Static Inventory slots in the inventory screen")]
     [SerializeField] ItemUI[] TotalItems_Menu;
@@ -114,14 +104,7 @@ public class InventoryUI : MonoBehaviour
             NotificationManager.Instance.ShowNotification("You are already using that item!");
             return;
         }
-        if (itemToBeEquiped.Item.Type == ItemType.Head)
-        {
-            HairPart.ChangeParts(itemToBeEquiped);
-        }
-        else if (itemToBeEquiped.Item.Type == ItemType.Body)
-        {
-            BodyPart.ChangeParts(itemToBeEquiped);
-        }
+        _BodyParts.ChangeParts(itemToBeEquiped);
         _playerInventory.EquipItem(itemToBeEquiped);
         UpdateItemList();
     }

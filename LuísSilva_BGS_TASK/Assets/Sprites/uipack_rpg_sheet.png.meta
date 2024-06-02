@@ -417,7 +417,7 @@ TextureImporter:
         width: 45
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 10, y: 10, z: 10, w: 10}
       outline: []
       physicsShape: []
@@ -425,6 +425,48 @@ TextureImporter:
       bones: []
       spriteID: 2e547fcef8fa84049ba253fa75043bdf
       internalID: 1802648831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Close Inventory
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 328
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85482aa89440ec142bc1155ab4b983bb
+      internalID: -1113344312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloseSHop
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 497
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4823c3e552dcc114b9b0dcc8a86ae66c
+      internalID: 1161147908
       vertices: []
       indices: 
       edges: []
@@ -441,6 +483,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Button: -103964286
+      Close Inventory: -1113344312
+      CloseSHop: 1161147908
       MoneyCounter: -1873124951
       NPC banner: 1984959781
       NotifBox: -132522463

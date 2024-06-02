@@ -4,25 +4,31 @@ using UnityEngine;
 
 public class BodyPartAnimation : MonoBehaviour
 {
+    [Header("Type of body part that this script handles")]
     [SerializeField] ItemType bodyPart;
-
     public ItemType BodyPart
     {
         get { return bodyPart; }
     }
 
+    [Header("Sprites for animation of the current equipped item")]
     [SerializeField] Sprite[] UpSprites;
     [SerializeField] Sprite[] DownSprites;
     [SerializeField] Sprite[] LeftSprites;
     [SerializeField] Sprite[] RightSprites;
 
+    //Reference to the reference of components needed
     private SpriteRenderer _spriteRenderer;
     private Animator _anim;
     private void Awake()
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _anim = GetComponent<Animator>();
+        //force Down pose on Start
+        _anim.SetFloat("LastVerticalMov", -1);
     }
+
+    //Funtions that handle the animation events getting the selected sprite to animate
     public void GetUpSprites(int index)
     {
         if (UpSprites.Length == 0 || index >= UpSprites.Length)
@@ -60,7 +66,7 @@ public class BodyPartAnimation : MonoBehaviour
         _spriteRenderer.sprite = RightSprites[index];
     }
 
-
+    //Funtion to change the sprites needed to animate to the current equiped item
     public void ChangeParts(ItemData itemToChangeTo)
     {
         if (itemToChangeTo.Item.Type != bodyPart) return;
@@ -73,13 +79,17 @@ public class BodyPartAnimation : MonoBehaviour
         _spriteRenderer.sprite = DownSprites[0];
     }
 
+    //Function handle players movement
     public void HandleMovement(bool canMove)
     {
+        //Catch reference of the boolean that says is the player can move, and sends the paramete to the animator
         _anim.SetBool("CanMove", canMove);
 
+        //Catch the inputs of the player
         float moveInput_x = Input.GetAxisRaw("Horizontal");
         float moveInput_y = Input.GetAxisRaw("Vertical");
 
+        //Send the parameters to the animator acording to the inputs
         if (canMove)
         {
 

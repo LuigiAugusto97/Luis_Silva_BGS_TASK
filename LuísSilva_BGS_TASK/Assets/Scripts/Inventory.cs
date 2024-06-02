@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [Header("List of the items that are in the players inventory")]
     [SerializeField] List<ItemData> _inventory;
-    public List<ItemData> _Inventory
+    public List<ItemData> InventoryProperty
     {
         get { return _inventory; }
     }
 
-    //To remove an item count
+    //Function to remove an item from the players inventory
     public void RemoveItem(ItemSO item)
     {
         if (CheckIfItemPresent(item))
@@ -21,7 +22,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    //To add an Item to the Inventory
+    //Function to add an item to the players inventory
     public void AddItem(ItemSO itemToAdd)
     {
         _inventory.Add(new ItemData()
@@ -31,7 +32,7 @@ public class Inventory : MonoBehaviour
         });
     }
 
-    //To check if inventory Contains Item
+    //Function to check if inventory contains Item
     public bool CheckIfItemPresent(ItemSO itemToCheck)
     {
         var itemAlreadyinInventory = _inventory.FirstOrDefault(item => item.Item == itemToCheck);
@@ -45,6 +46,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //Function to handle which item is currently equiped
     public void EquipItem(ItemData itemEquiped)
     {
         foreach( ItemData item in _inventory)
@@ -66,6 +68,7 @@ public class Inventory : MonoBehaviour
     }
 }
 
+//Class created to handle the items 
 [Serializable]
 public class ItemData
 {

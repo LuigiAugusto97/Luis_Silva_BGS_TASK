@@ -7,12 +7,16 @@ using UnityEngine.UI;
 
 public class ItemUI : MonoBehaviour
 {
+    [Header("Common to all items")]
     [SerializeField] Image ItemIcon;
     [SerializeField] Image ItemBorder;
-    [SerializeField] TextMeshProUGUI ItemPrice;
-    [SerializeField] TextMeshProUGUI ItemName;
     [SerializeField] Button Button;
 
+    [Header("Exclusive to shop UI")]
+    [SerializeField] TextMeshProUGUI ItemPrice;
+    [SerializeField] TextMeshProUGUI ItemName;
+
+    //Function to set all the parameters from an item data and handle the on click event
     public void SetInventoryData(ItemData itemUI, Action onClickEvent)
     {
         ItemIcon.enabled = true;
@@ -24,6 +28,8 @@ public class ItemUI : MonoBehaviour
         Button.interactable = true;
         Button.onClick.AddListener(() => { onClickEvent?.Invoke(); });
     }
+
+    //Function to reset the parameters of the item UI
     public void ClearItemUI()
     {
         Button.interactable = false;
@@ -32,6 +38,7 @@ public class ItemUI : MonoBehaviour
         Button.onClick.RemoveAllListeners();
     }
 
+    //Function to set all the parameters from an item data and handle the on click event, but for the shop items specifically
     public void SetShopData(ItemSO shopItem, Action onClickEvent)
     {
         Button.onClick.RemoveAllListeners();

@@ -5,11 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/Item SO")]
 public class ItemSO : ScriptableObject
 {
+    [Header("Displayed Variables for Inventory")]
     [SerializeField] string _name;
     [SerializeField] Sprite _icon;
     [SerializeField] ItemType _type;
     [SerializeField] float _price;
 
+    [Header("Sprites to handle animations")]
     [SerializeField] Sprite[] upSprites;
     [SerializeField] Sprite[] downSprites;
     [SerializeField] Sprite[] leftSprites;
@@ -48,6 +50,7 @@ public class ItemSO : ScriptableObject
     }
 }
 
+//Enum to handle type of item
 public enum ItemType
 {
     Head,Body

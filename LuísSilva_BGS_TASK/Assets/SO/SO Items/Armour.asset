@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3bd21ea8dd50646ba3fd02fcb1a124, type: 3}
+  m_Name: Armour
+  m_EditorClassIdentifier: 
+  _name: Armour
+  _icon: {fileID: -69856205, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  _type: 1
+  _price: 135
+  upSprites:
+  - {fileID: -471089910, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  - {fileID: 455367972, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  - {fileID: -1404517823, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  downSprites:
+  - {fileID: -193906003, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  - {fileID: 124377856, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  - {fileID: -264130344, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  leftSprites:
+  - {fileID: 246780647, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  - {fileID: 1049251338, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  - {fileID: -295113213, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  rightSprites:
+  - {fileID: 144322426, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  - {fileID: -438708170, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}
+  - {fileID: 213518126, guid: dd03f7288b63f924582bcac4e9cc603f, type: 3}

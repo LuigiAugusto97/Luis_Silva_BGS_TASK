@@ -53,6 +53,7 @@ public class BodyPartAnimation : MonoBehaviour
             return;
         }
         Head_SpriteRenderer.sprite = Head_LeftSprites[index];
+        Debug.Log("Head left");
     }
     public void GetRightSprites_Head(int index)
     {
@@ -62,6 +63,7 @@ public class BodyPartAnimation : MonoBehaviour
             return;
         }
         Head_SpriteRenderer.sprite = Head_RightSprites[index];
+        Debug.Log("Head Right");
     } 
     public void GetUpSprites_Body(int index)
     {

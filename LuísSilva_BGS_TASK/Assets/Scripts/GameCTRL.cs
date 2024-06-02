@@ -32,7 +32,7 @@ public class GameCTRL : MonoBehaviour
     {
         if (states == GameStates.FreeRoam)
         {
-            Player.HandleMovement(true);
+            
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -58,6 +58,10 @@ public class GameCTRL : MonoBehaviour
                 CloseShopWindow();
             }
         }
+    }
+    private void FixedUpdate()
+    {
+        Player.HandleMovement(true);
     }
 
     //Funtio to handle the opening and closing of the inventory in the UI

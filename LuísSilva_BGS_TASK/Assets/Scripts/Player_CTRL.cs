@@ -69,7 +69,15 @@ public class Player_CTRL : MonoBehaviour
             _dirVector = new Vector2(moveInput_x, moveInput_y);
             _rb.velocity = _dirVector * Speed;
             _anim.SetFloat("HorizontalMovement", moveInput_x);
-            _anim.SetFloat("VerticalMovement", moveInput_y);
+            if (moveInput_x == 0)
+            {
+                _anim.SetFloat("VerticalMovement", moveInput_y);
+            }
+            else
+            {
+                _anim.SetFloat("VerticalMovement", 0);
+            }
+           
 
             _isMoving = moveInput_x != 0 || moveInput_y != 0;
             _anim.SetBool("IsMoving", _isMoving);

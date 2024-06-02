@@ -25,7 +25,7 @@ public class InteractionHelper : MonoBehaviour
     {
         isShowing = true;
         TextHelperObj.SetActive(true);
-        TextHelperTxt.text = $"You can use {interactionKey} to interact with.";
+        TextHelperTxt.text = $"You can use {interactionKey} to interact!";
 
         yield return new WaitForSeconds(2f);
 
